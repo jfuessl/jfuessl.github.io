@@ -1,4 +1,3 @@
-console.log("Hello");
 var WORD=answers[Math.floor(Math.random()*answers.length)].toUpperCase().split('');
 console.log(WORD);
 var guess = ['','','','',''];
@@ -41,7 +40,6 @@ function updateWordle(){
       value = matrix[r][c];
       var cel = document.getElementById('row' + r + 'cel' + c);
       cel.innerText = value;
-      console.log(value, WORD[c]);
       if(value === WORD[c]){
         cel.style.backgroundColor = "green";
       }else if(WORD.includes(value)){
@@ -59,7 +57,6 @@ function updateWordle(){
 
 function inputChar(key){
   if (CEL < 5){
-    console.log(key);
     guess[CEL] = key;
     CEL++;
   }
@@ -86,7 +83,6 @@ function submitWord(){
   if (CEL == 5){
     var word = guess.join("").toLowerCase();
     if(answers.includes(word)){
-      console.log(word);
       matrix[ROW] = guess;
       guess = ['','','','',''];
       CEL = 0;
@@ -100,7 +96,6 @@ function submitWord(){
 
 document.body.addEventListener("keyup", ({key}) => {
   if (event.key.match(/^[A-Za-z]$/g)) {
-    console.log(key);
     inputChar(key.toUpperCase());
   } else {
     if (key == "Backspace") {
